@@ -6,14 +6,22 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger'
 
-const surveyReducer = (state = [], action) => {
-    if (action.type === 'SET_SURVEY') {
-        return [...action.payload]
-    }else if (action.type === 'EMPTY') {
-        return []
+const surveyReducer = (state = {}, action) => {
+    switch (action.type) {
+      case 'SET_FEELING':
+        return { ...state, feeling: action.payload };
+      case 'SET_UNDERSTAND':
+        return { ...state, understanding: action.payload };
+      case 'SET_SUPPORT':
+        return { ...state, support: action.payload };
+      case 'SET_COMMENTS':
+        return { ...state, comments: action.payload };
+      case 'RESET_SURVEY':
+        return {};
+      default:
+        return state;
     }
-    return state
-}
+  };
 
 const storeInstance = createStore(
     combineReducers({

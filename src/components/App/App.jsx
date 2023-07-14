@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom/cjs/react-router-dom.min';
-
+import { useDispatch } from 'react-redux';
 import FeelingForm from './FeelingForm/FeelingForm';
 import UnderstandForm from './UnderstandForm/UnderStandForm';
 import SupportForm from './SupportForm/SupportForm'
@@ -11,7 +11,16 @@ import ReviewForm from './ReviewForm/ReviewForm'
 
 function App() {
 
-  
+  const dispatch = useDispatch()
+
+  axios.get('/survey').then(response => {
+    dispatch({
+      type:'SET_SURVEY',
+      payload:response.data
+    })
+  }).catch(err => {
+    console.log("error in get", err)
+  })
 
   return (
     <div className='App'>

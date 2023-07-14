@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 import './UnderstandForm.css'
 // import axios from 'axios'
 
 function UnderstandForm() {
-
-    const history = useHistory();
-    let [understandToAdd, setUnderstandToAdd] = useState({ understanding: 0 })
+    const dispatch = useDispatch()
+    const history = useHistory()
+    let [understanding, setUnderstanding] = useState('')
 
     const handleUnderstand = (event) => {
-        setUnderstandToAdd({
-            ...understandToAdd,
-            understanding: event.target.value,
-        });
+        event.preventDefault();
+        dispatch({ type: 'SET_UNDERSTAND', payload: understanding })
         goToSupportForm()
     }
 
@@ -29,7 +27,8 @@ function UnderstandForm() {
                 <input
                     type="number"
                     placeholder='1 to 5'
-                    min="1" max="5" />
+                    min="1" max="5" 
+                    onChange={(event) => setUnderstanding(event.target.value)}/>
                 <button type="submit">Next</button>
             </form>
         </div>

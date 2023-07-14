@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import './supportForm.css'
 // import axios from 'axios'
 
 function supportForm() {
-
+    const dispatch = useDispatch()
     const history = useHistory()
-    let [supportToAdd, setSupportToAdd] = useState({ support: 0 })
+    let [support, setSupport] = useState('')
 
     const handleSupport = (event) => {
-        setSupportToAdd({
-            ...supportToAdd,
-            support: event.target.value,
-        });
+        event.preventDefault()
+        dispatch({ type: 'SET_SUPPORT', payload: support })
         goToCommentForm()
     }
 
@@ -28,7 +27,8 @@ function supportForm() {
                 <input
                     type="number"
                     placeholder='1 to 5'
-                    min="1" max="5" />
+                    min="1" max="5" 
+                    onChange={(event) => setSupport(event.target.value)}/>
                 <button type="submit">Next</button>
             </form>
         </div>

@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
                      VALUES ($1, $2, $3, $4);`;
     pool.query(sqlText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comments])
         .then((result) => {
-            console.log(`Added feedback to the database`, gallery);
+            console.log(`Added feedback to the database`, feedback);
             res.sendStatus(201);
         })
         .catch((error) => {
