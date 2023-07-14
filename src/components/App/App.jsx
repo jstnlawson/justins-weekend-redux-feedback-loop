@@ -11,17 +11,7 @@ import ReviewForm from './ReviewForm/ReviewForm'
 
 function App() {
 
-  const addSurvey = (event) => {
-    event.preventDefault();
-
-    axios.post('survey',
-      surveyToAdd
-    ).then(response => {
-      setSurveyToAdd('')
-    }).catch(err => {
-      console.log('error adding survey info: ', err);
-    })
-  };
+  
 
   return (
     <div className='App'>
