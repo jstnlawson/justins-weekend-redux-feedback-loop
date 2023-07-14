@@ -10,15 +10,15 @@ import CommentForm from './CommentForm/CommentForm'
 
 function App() {
 
-  const addToSurvey = (event) => {
+  const addSurvey = (event) => {
     event.preventDefault();
 
-    axios.post('/api/order',
-      customerToAdd
+    axios.post('survey',
+      surveyToAdd
     ).then(response => {
-      setCustomerToAdd('')
+      setSurveyToAdd('')
     }).catch(err => {
-      console.log('error adding customer info: ', err);
+      console.log('error adding survey info: ', err);
     })
   };
 
@@ -27,12 +27,10 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
-        
-        
-      
       </header>
+
       <Router>
-        <Route exact path="/feeling">
+        <Route exact path='/'>
           <FeelingForm />
         </Route>
         <Route exact path="/understand">
@@ -44,9 +42,9 @@ function App() {
         <Route exact path="/comment">
           <CommentForm />
         </Route>
-        
-        
-        
+
+
+
       </Router>
 
     </div>
