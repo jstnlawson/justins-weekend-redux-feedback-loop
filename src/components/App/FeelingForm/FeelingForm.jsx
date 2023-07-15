@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './FeelingForm.css'
@@ -7,6 +7,8 @@ function FeelingForm() {
     const dispatch = useDispatch()
     const history = useHistory();
     const [feeling, setFeeling] = useState('');
+
+
 
     const handleFeeling = (event) => {
         event.preventDefault();
@@ -17,6 +19,12 @@ function FeelingForm() {
     const goToUnderstandForm = () => {
         history.push('/understand');
     };
+    const handleAlert = (event) => {
+        if (feeling === '') {
+            event.preventDefault(); // Prevent following the link
+            alert('Please fill in the field before proceeding.');
+          }
+       };
 
     return (
         <div className="feeling-container">
@@ -29,8 +37,9 @@ function FeelingForm() {
                     max="5"
                     value={feeling}
                     onChange={(event) => setFeeling(event.target.value)}
+                    
                 />
-                <button type="submit">Next</button>
+                <button onClick={handleAlert} type="submit">Next</button>
             </form>
         </div>
     );

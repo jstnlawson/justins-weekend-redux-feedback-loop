@@ -19,6 +19,13 @@ function UnderstandForm() {
         history.push('/support');
       }
 
+      const handleAlert = (event) => {
+        if (understanding === '') {
+            event.preventDefault(); // Prevent following the link
+            alert('Please fill in the field before proceeding.');
+          }
+       };
+
     return (
         <>
         <div className='understand-container'>
@@ -29,7 +36,7 @@ function UnderstandForm() {
                     placeholder='1 to 5'
                     min="1" max="5" 
                     onChange={(event) => setUnderstanding(event.target.value)}/>
-                <button type="submit">Next</button>
+                <button onChange={handleAlert} type="submit">Next</button>
             </form>
         </div>
         </>

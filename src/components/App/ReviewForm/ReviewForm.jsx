@@ -19,12 +19,20 @@ function ReviewForm() {
             comments: comments
         }
 
-        axios.post('survey',surveyToAdd)
+        axios.post('survey', surveyToAdd)
             .then(response => {
-            // setSurveyToAdd('')
-        }).catch(err => {
-            console.log('error adding survey info: ', err)
-        })
+                // setSurveyToAdd('')
+            }).catch(err => {
+                console.log('error adding survey info: ', err)
+            })
+
+        let text;
+        if (confirm("Are you sure?") == true) {
+            text = "You pressed OK!";
+        } else {
+            text = "You canceled!";
+        }
+
     };
 
     return (
