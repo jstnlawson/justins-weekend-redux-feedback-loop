@@ -54,7 +54,7 @@ function ReviewForm() {
             <br />
             <p>Comments: {comments}</p>
             <br />
-            <button onClick={addSurvey} type="submit">Submit</button>
+            <button onClick={addSurvey}>Submit</button>
         </>
     )
 }

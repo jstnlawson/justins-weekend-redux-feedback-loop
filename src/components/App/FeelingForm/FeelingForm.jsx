@@ -19,7 +19,7 @@ function FeelingForm() {
     const goToUnderstandForm = () => {
         history.push('/understand');
     };
-    
+
     const handleAlert = (event) => {
         if (feeling === '') {
             event.preventDefault(); // Prevent following the link
@@ -33,7 +33,6 @@ function FeelingForm() {
                 <h1>How are you feeling today?</h1>
                 <input
                     type="number"
-                    placeholder="1 to 5"
                     min="1"
                     max="5"
                     value={feeling}

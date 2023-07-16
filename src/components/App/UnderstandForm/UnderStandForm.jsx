@@ -33,10 +33,9 @@ function UnderstandForm() {
                 <h1>How well did you understand the material today?</h1>
                 <input
                     type="number"
-                    placeholder='1 to 5'
                     min="1" max="5" 
                     onChange={(event) => setUnderstanding(event.target.value)}/>
-                <button onChange={handleAlert} type="submit">Next</button>
+                <button onClick={handleAlert} type="submit">Next</button>
             </form>
         </div>
         </>

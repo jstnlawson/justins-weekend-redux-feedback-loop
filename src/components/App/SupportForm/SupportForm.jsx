@@ -33,10 +33,9 @@ function supportForm() {
                 <h1>How well are you being supported today?</h1>
                 <input
                     type="number"
-                    placeholder='1 to 5'
                     min="1" max="5" 
                     onChange={(event) => setSupport(event.target.value)}/>
-                <button onChange={handleAlert} type="submit">Next</button>
+                <button onClick={handleAlert} type="submit">Next</button>
             </form>
         </div>
         </>

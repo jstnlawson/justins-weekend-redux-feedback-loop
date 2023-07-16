@@ -12,10 +12,10 @@ function SubmitSuccess() {
 
     return (
         <div>
-            <form onSubmit={goToFeelingForm}>
-                <h2>Thank You!</h2>
-                <button type="submit">Leave New Feedback</button>
-            </form>
+
+            <h2>Thank You!</h2>
+            <button onClick={goToFeelingForm}>Leave New Feedback</button>
+
         </div>
     )
 }
