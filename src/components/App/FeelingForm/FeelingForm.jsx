@@ -19,6 +19,7 @@ function FeelingForm() {
     const goToUnderstandForm = () => {
         history.push('/understand');
     };
+    
     const handleAlert = (event) => {
         if (feeling === '') {
             event.preventDefault(); // Prevent following the link

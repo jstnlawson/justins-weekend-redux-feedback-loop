@@ -8,6 +8,7 @@ import UnderstandForm from './UnderstandForm/UnderStandForm';
 import SupportForm from './SupportForm/SupportForm'
 import CommentForm from './CommentForm/CommentForm'
 import ReviewForm from './ReviewForm/ReviewForm'
+import SubmitSuccess from './SubmitSuccess/SubmitSuccess';
 
 function App() {
 
@@ -45,6 +46,10 @@ function App() {
         <Route exact path="/review">
           <ReviewForm />
         </Route>
+        <Route exact path="/success">
+          <SubmitSuccess />
+        </Route>
+
       </Router>
     </div>
   );

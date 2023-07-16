@@ -1,9 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
 
 function ReviewForm() {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
+    const history = useHistory()
     const feeling = useSelector((state) => state.surveyReducer.feeling)
     const understanding = useSelector((state) => state.surveyReducer.understanding)
     const support = useSelector((state) => state.surveyReducer.support)
@@ -11,6 +14,7 @@ function ReviewForm() {
 
     const addSurvey = (event) => {
         event.preventDefault()
+        
 
         const surveyToAdd = {
             feeling: feeling,
@@ -21,7 +25,7 @@ function ReviewForm() {
 
         axios.post('survey', surveyToAdd)
             .then(response => {
-                // setSurveyToAdd('')
+                goToSuccessForm()
             }).catch(err => {
                 console.log('error adding survey info: ', err)
             })
@@ -32,7 +36,10 @@ function ReviewForm() {
         } else {
             text = "You canceled!";
         }
+    };
 
+    const goToSuccessForm = () => {
+        history.push('/success');
     };
 
     return (
