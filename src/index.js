@@ -6,6 +6,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger'
 
+//I did a switch statement instead of an if/else
+
 const surveyReducer = (state = {}, action) => {
     switch (action.type) {
       case 'SET_FEELING':

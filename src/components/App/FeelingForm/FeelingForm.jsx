@@ -9,7 +9,6 @@ function FeelingForm() {
     const [feeling, setFeeling] = useState('');
 
 
-
     const handleFeeling = (event) => {
         event.preventDefault();
         dispatch({ type: 'SET_FEELING', payload: feeling });
@@ -26,6 +25,10 @@ function FeelingForm() {
             alert('Please fill in the field before proceeding.');
           }
        };
+
+       //there's a lot going on between the "onSubmit", "onChange", and "onClick"
+       //stuff here. Lots of trial and error getting it all to work without
+       //throwing errors
 
     return (
         <div className="feeling-container">

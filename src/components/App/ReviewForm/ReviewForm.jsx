@@ -1,11 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 
 function ReviewForm() {
-    // const dispatch = useDispatch()
+    
     const history = useHistory()
     const feeling = useSelector((state) => state.surveyReducer.feeling)
     const understanding = useSelector((state) => state.surveyReducer.understanding)
